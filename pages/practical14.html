@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Practical-14</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, Serif, SansSerif;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .main-heading {
+            font-size: 72px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+            font-family: Arial, Helvetica, Sans-Serif, Serif;
+            color: #64548f;
+        }
+
+        .container {
+            padding: 30px;
+            width: 100%;
+            justify-content: space-between;
+            display: flex;
+        }
+
+        .form-1 {
+            width: 30%;
+            background-color: #fffafa;
+            border-radius: 10px;
+            box-shadow: rgb(185, 185, 185) 2px 2px 2px 2px;
+        }
+
+        .form-1 .sec-1 {
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            justify-items: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to right, rgba(30, 30, 233, 0.808), rgb(112, 199, 233));
+
+        }
+
+        .form-1 .sec-1 h3 {
+            font-size: 40px;
+            font-weight: 300;
+            margin: 25px;
+            color: #ffffff;
+
+        }
+
+        .form-1 .sec-1 .icon i {
+            font-size: 25px;
+            margin-right: 5px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            
+        }
+
+        .input-template-1 {
+            padding-left: 10px;
+            padding-right: 10px;
+
+        }
+
+        .input-template-1 input {
+            border: none;
+            background: transparent;
+            font-style: italic;
+            padding: 10px;
+            width: 100%;
+
+        }
+
+        .input-template-1 input:focus {
+            margin-top: 5px;
+            border-bottom: #0000ff;
+            outline: none;
+            border-bottom-style: solid;
+            
+        }
+
+        .input-template-1 div {
+            border-bottom: 1px solid rgba(95, 95, 95, 0.815);
+
+        }
+
+        .forgot-template-1 a {
+            float: right;
+            padding-right: 10px;
+            color: black;
+            text-decoration: none;
+            margin-top: 30px;
+        }
+
+        .forgot-template-1 a:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+        .footer {
+            margin-top: 80px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        .footer input {
+            padding: 10px 20px;
+            border-radius: 15px;
+            background-color: rgb(59, 54, 54);
+            color: #ffffff;
+            margin: 10px;
+            border: 2px solid rgb(59, 54, 54);
+        }
+
+        .footer input:hover {
+            background-color: rgb(255, 0, 0);
+            border: 2px solid red;
+        }
+
+        .footer label a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .footer label a:hover {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+
+        .form-2 {
+            width: 30%;
+            background-color: #f8f8ff;
+            box-shadow: rgb(185, 185, 185) 2px 2px 2px 2px;
+            border-radius: 10px;
+        }
+
+        .sec-2 h3 {
+            font-weight: 300;
+            margin: 25px;
+            font-size: 40px;
+            text-align: center;
+            
+        }
+
+        .input-template-2 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .input-template-2 input {
+            padding: 10px;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-style: italic;
+        }
+
+        .input-template-2 input:focus {
+            outline: none;
+            border-bottom-style: solid;
+            margin-top: 5px;
+        }
+
+        .input-template-2 div {
+            border-bottom: 1px solid rgba(95, 95, 95, 0.815);
+        }
+
+        .chk-box {
+            padding: 10px;
+        }
+
+        .button-template-2 {
+            margin-top: 30px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            
+        }
+
+        .button-template-2 input {
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #9370d8;
+            color: #ffffff;
+            
+        }
+
+        .button-template-2 input:hover {
+            color: #000000;
+            cursor: pointer;
+            background-color: rgb(247, 247, 149);
+            
+        }
+
+        .form-2 .footer-template-2 .icon {
+            background: linear-gradient(#5d5d7d, #7d267b);
+            display: flex;
+            justify-content: center;
+            padding: 60px;
+            font-size: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .form-2 .footer-template-2 .icon i {
+            letter-spacing: 20px;
+            color: white;
+        }
+
+        .form-2 .footer-template-2 .icon i:hover {
+            color: rgb(247, 247, 149);
+            cursor: pointer;
+            transform: scale(1.5);
+        }
+
+        .form-3 {
+            width: 30%;
+            box-shadow: rgb(185, 185, 185) 2px 2px 2px 2px;
+            border-radius: 10px;
+            background-color: #f7f5f2;
+        }
+
+        .sec-3 h3 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 300;
+            color: #000000;
+        }
+
+        .input-template-3 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .input-template-3 label {
+            color: rgb(5, 88, 5);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .input-template-3 input {
+            border: none;
+            background: transparent;
+            margin-top: 10px;
+            width: 100%;
+            font-style: italic;
+            padding: 10px;
+        }
+
+        .input-template-3 input:focus {
+            border-bottom: rgb(5, 88, 5);
+            outline: none;
+            border-bottom-style: solid;
+            margin-top: 5px;
+        }
+
+        .input-template-3 div {
+            border-bottom: 1px solid rgba(95, 95, 95, 0.815);
+            margin-bottom: 10px;
+        }
+        .forgot-template-3 a {
+            color: #000000;
+            float: right;
+            padding-right: 10px;
+            text-decoration: none;
+            margin-top: 25px;
+        }
+        .forgot-template-3 a:hover {
+            text-decoration: underline;
+        }
+        .btn-template-3 {
+            text-align: center;
+        }
+        .btn-template-3 input {
+            border-radius: 30px;
+            width: 90%;
+            font-weight: 700;
+            padding: 10px 20px;
+            margin-top: 35px;
+            background: linear-gradient(to right, #ccbcf7, darkslateblue);
+            color: #ffffff;
+        }
+
+        .btn-template-3 input:hover {
+            background-color: rgb(221, 255, 228);
+            cursor: pointer;
+
+        }
+
+        .with {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .form-3 .icon {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            color: #005cbf;
+        }
+
+        .form-3 .icon i {
+            margin: 10px;
+            box-shadow: 2px 2px 2px 2px grey;
+            border-radius: 20px;
+            padding: 5px 20px;
+
+            background-color: white;
+        }
+
+        .form-3 .icon i:hover {
+            background: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 845px) {
+
+            .container {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .form-1,
+            .form-2,
+            .form-3 {
+                width: 70%;
+                margin: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main-heading">FORM TEMPLATES</h1>
+<div class="container">
+    <div class="form-1">
+        <section class="sec-1">
+            <h3>Log In</h3>
+            <div class="icon">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-google"></i>
+            </div>
+        </section>
+        <section class="input-template-1">
+            <div class="email-template-1">
+                <label></label><br>
+                <input type="text" name="email" placeholder="Your Email....">
+
+            </div>
+            <div class="password-template-1">
+                <label></label><br>
+                <input type="password" name="pswrd" placeholder="Your Password...">
+            </div>
+        </section>
+        <div class="forgot-template-1">
+            <a href="">forgot <b>password?</b></a>
+        </div>
+        <section class="footer">
+            <label></label>
+            <input type="submit" value="login">
+            <label>Don't have an account?<a href=""><b> Sign Up!</b></a></label>
+        </section>
+
+
+    </div>
+    
+    <div class="form-2">
+        <section class="sec-2">
+            <h3>Sign Up</h3>
+        </section>
+        <section class="input-template-2">
+            <div class="email-template-2">
+                <label></label><br>
+                <input type="text" name="email" placeholder="Your Email">
+            </div>
+
+            <div class="password-template-2">
+                <label></label><br>
+                <input type="password" name="pswrd" placeholder="Your Password">
+            </div>
+        </section>
+        <div class="chk-box">
+            <input type="checkbox">
+            <label>Accept the <b>Terms and Conditions</b></label>
+        </div>
+        <section class=" button-template-2">
+            <label></label>
+            <input type="submit" value="Sign Up">
+            <label>Have an account?<a href="">Log in!</a></label>
+        </section>
+        <section class="footer-template-2">
+            <div class="icon">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-google"></i>
+            </div>
+        </section>
+    </div>
+
+    <div class="form-3">
+        <section class="sec-3">
+            <h3>Sign in</h3>
+        </section>
+        <section class="input-template-3">
+            <div class="email-template-3">
+                <input type="text" name="email" placeholder="Your Email">
+            </div>
+
+            <div class="password-template-3">
+                <input type="password" name="pswrd" placeholder="Your Password">
+            </div>
+        </section>
+
+
+        <div class="forgot-template-3">
+            <a href="">forgot <b>password?</b></a>
+        </div>
+        <div class="btn-template-3">
+            <input type="submit" value="Sign in">
+        </div>
+        <div class="with">
+            or sign in with
+        </div>
+        <div class="icon">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-google"></i>
+        </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>
