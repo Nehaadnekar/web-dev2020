@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical-15</title>
+    <style>
+
+        * {
+            background-color: maroon;
+            padding: 0;  
+            margin: 0;
+        }
+
+        p {
+            margin: 30px 5px;
+            color: white;
+            text-align: center;
+            font-size: 60px;
+            
+        }
+        #increase, #decrease {
+            background-color: wheat;
+            font-size: 60px;
+            padding: 5px;
+            height: 150px;
+            width: 150px;
+        }
+        #container {
+            justify-content: center;
+            flex-direction: row;
+            display: flex;
+            flex-wrap: wrap;
+          
+        }
+
+    </style>
+</head>
+<body>
+    <p>Counter</p>
+    <div id="container">
+        <button id="decrease">-</button>
+        <p id="counts">0</p>
+        <button id="increase">+</button>
+    </div>
+    <script>
+        var decrease = document.getElementById("decrease");
+        var increase = document.getElementById("increase");
+        counts = document.getElementById("counts");
+        var counter = 0;
+        updateCounter();
+    
+        function updateCounter() {
+            counts.innerHTML = counter;
+            if (counter <= 0) decrease.style.color = "white";
+            else decrease.style.color = "black";
+        }
+    
+        increase.addEventListener("click", () => {
+            counter++;
+            updateCounter();
+        });
+    
+        decrease.addEventListener("click", () => {
+            if (counter <= 0) {
+                decrease.disable = true;
+            } else {
+                counter--;
+                decrease.disable = false;
+            }
+            updateCounter();
+        });
+    
+    </script>    
+</body>
+</html>
