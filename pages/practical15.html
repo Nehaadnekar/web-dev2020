@@ -52,8 +52,16 @@
     
         function updateCounter() {
             counts.innerHTML = counter;
-            if (counter <= 0) decrease.style.color = "white";
-            else decrease.style.color = "black";
+            if (counter <= 0)
+            {
+                decrease.style.color = "white";
+                increase.style.color = "white";
+            } 
+            else 
+            {
+                decrease.style.color = "black";
+                increase.style.color = "black";
+            }
         }
     
         increase.addEventListener("click", () => {
