@@ -50,24 +50,24 @@
         counts = document.getElementById("counts");
         var counter = 0;
         updateCounter();
+        decrease.style.color = "white";
+        increase.style.color = "white";
     
         function updateCounter() {
             counts.innerHTML = counter;
-            if (counter <= 0)
-            {
-                decrease.style.color = "white";
-                
-            } 
-            else 
-            {
-                decrease.style.color = "black";
-    
-            }
+            // if (counter <= 0)
+            // {
+            //     decrease.style.color = "white";
+            //     increase.style.color = "white";
+   
+            // }
+            
         }
     
         increase.addEventListener("click", () => {
             counter++;
             updateCounter();
+            increase.style.color = "black";
         });
     
         decrease.addEventListener("click", () => {
@@ -77,6 +77,7 @@
                 counter--;
                 decrease.disable = false;
             }
+            decrease.style.color = "black";
             updateCounter();
         });
     
