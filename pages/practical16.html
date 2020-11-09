@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Practical-16</title>
+    <style>
+     * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        }
+
+        h1, form {
+            align-items: center;
+            height: 20vh;
+            justify-content: center;
+            display: flex;
+        }
+
+        body {
+            background: linear-gradient(110deg, #da910a, #2e38be);
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #ffffff;
+            letter-spacing: 1px;
+            font-size: 40px;
+            
+        }
+
+        form input,
+        form button {
+            background: white;
+            outline: none;
+            border: none;
+            border-radius: 15px;
+            font-size: 25px;
+            padding: 10px;
+        }
+
+        form button {
+            cursor: pointer;
+            background-color: #ffffff;
+            margin-left: 3px;
+        }
+
+        form button:hover {
+            color: #ffffff;
+            background-color: #d9f00d;
+        }
+
+        .todo-list {
+            min-width: 24%;
+            list-style: none;
+            
+        }
+
+        .todo-container {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            
+
+        }
+
+        .todo {
+            color: #800000;
+            display: flex;
+            background-color: #ffffff;
+            justify-content: space-between;
+            font-size: 24px;
+            align-items: center;
+            margin: 8px;
+        }
+
+        .todo-li {
+            margin: 0 8px;
+            flex: 1;
+        }
+
+        .del-btn {
+            color: #ffffff;
+            padding: 10px;
+            outline: none;
+            background-color: #ff0000;
+            font-size: 15px;
+        }
+        .chk-btn { 
+            color: #ffffff;
+            padding: 10px;
+            outline: none;
+            font-size: 15px;
+            background-color: #18f818;
+            
+        }
+
+        .done {
+            opacity: .5;
+            text-decoration: line-through;
+            
+        }
+
+        .fa-trash,
+        .fa-check {
+            pointer-events: none;
+
+        }
+    </style>
+</head>
+<body>
+<h1>To-do List</h1>
+<form>
+    <input type="text" class="todo-input"/>
+    <button class="todo-btn">
+        <i class="fa fa-plus-square" aria-hidden="true"></i>
+    </button>
+</form>
+<div class="todo-container">
+    <ul class="todo-list">
+
+
+    </ul>
+</div>
+
+<script>
+    var Input = document.querySelector(".todo-input");
+    var btn = document.querySelector(".todo-btn");
+    var List = document.querySelector(".todo-list");
+    btn.onclick = create;
+    function create(e) {
+        e.preventDefault();
+
+        if (Input.value) {
+            var newDiv = document.createElement("div");
+            newDiv.classList.add("todo");
+
+            var newli = document.createElement("li");
+            newli.classList.add("todo-li");
+            newli.innerHTML = Input.value;
+
+            newDiv.appendChild(newli);
+
+            var chkbtn = document.createElement("button");
+            chkbtn.classList.add("chk-btn");
+            chkbtn.innerHTML = '<i class="fa fa-check"></i>';
+            newDiv.appendChild(chkbtn);
+
+            var delbtn = document.createElement("button");
+            delbtn.classList.add("del-btn");
+            delbtn.innerHTML = '<i class= "fa fa-trash"></i>';
+            newDiv.appendChild(delbtn);
+            Input.value = "";
+
+            List.appendChild(newDiv);
+
+            List.onclick = chkdel;
+
+            function chkdel(e) {
+                var item = e.target;
+                if (item.classList[0] === "del-btn") {
+                    var parent = item.parentNode;
+                    parent.remove();
+                }
+                if (item.classList[0] === "chk-btn") {
+                    var parent = item.parentNode;
+                    parent.classList.toggle("done");
+                }
+            }
+
+        } else {
+            alert("Field cannot be empty, enter a value");
+        }
+
+    }
+</script>
+</body>
+</html>
