@@ -3,8 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progressive Login Form</title>
-    <link rel="stylesheet" href="practical-19.css" \>
+    <title>Multi Setup Form</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color:grey;
+            height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 360px;
+            height: 400px;
+            background-color: white;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container form{
+            position: absolute;
+            top: 80px;
+            left: 40px;
+            width: 280px;
+            transition: 0.75s;
+        }
+
+        form h4{
+            text-align: center;
+            margin-bottom: 30px;
+            color:black;
+        }
+
+        form input{
+            width: 100%;
+            padding: 10px 5px;
+            margin: 5px 0px;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid gray;
+        }
+
+        .btn{
+            margin: 30px auto;
+            text-align: center;
+
+        }
+
+        form button{
+            width: 120px;
+            height: 35px;
+            border: none;
+            background-color: slateblue;
+            border-radius: 10px;
+            color: white;
+            outline: none;
+        }
+
+        #form2{
+            left: 450px;
+        }
+
+        #form3{
+            left: 450px;
+        }
+
+        .rows{
+            width: 360px;
+            height: 40px;
+            box-shadow: 0px --1px 5px -1px black;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .colns{
+            width: 120px;
+            text-align: center;
+            color: black;
+            z-index: 1;
+            font-weight: 700;
+        }
+
+        #progress{
+            width: 120px;
+            height: 100%;
+            position: absolute;
+            background-color: #FF00FF;
+        }
+
+        #progress::after{
+            content: '';
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            right: -20px;
+            top: 0px;
+            border-left: 20px solid #FF00FF;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -40,12 +146,46 @@
         
         <div class="rows">
             <div id="progress"></div>
-            <div class="colns"><small>Start</small></div>
-            <div class="colns"><small>Halfway</small></div>
-            <div class="colns"><small>Completed</small></div>
+            <div class="colns"><small>Step 1</small></div>
+            <div class="colns"><small>Step 2</small></div>
+            <div class="colns"><small>Step 3</small></div>
         </div>
         
     </div>
-    <script src="practical-19.js"></script>
+    <script>
+        const form1 = document.getElementById('form1');
+        const form2 = document.getElementById('form2');
+        const form3 = document.getElementById('form3');
+        const next1 = document.getElementById('next1');
+        const next2 = document.getElementById('next2');
+        const back1 = document.getElementById('back1');
+        const back2 = document.getElementById('back2');
+
+        const progress=document.getElementById('progress');
+
+        next1.onclick=function (){
+            form1.style.left="-450px";
+            form2.style.left="40px";
+            progress.style.width="240px";
+        };  
+
+        back1.onclick=function (){
+            form1.style.left="40px";
+            form2.style.left="450px";
+            progress.style.width="120px";
+        };
+
+        next2.onclick=function (){
+            form2.style.left="-450px";
+            form3.style.left="40px";
+            progress.style.width="360px";
+        };
+
+        back2.onclick=function (){
+            form2.style.left="40px";
+            form3.style.left="450px";
+            progress.style.width="240px";
+        };
+    </script>
 </body>
 </html>
